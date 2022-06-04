@@ -21,12 +21,7 @@
             return aText.localeCompare(bText);
         }
 
-        const sortReverse = (b, a) =>
-        {
-            const aText = a.textContent.trim().toLowerCase();
-            const bText = b.textContent.trim().toLowerCase();
-            return aText.localeCompare(bText);
-        }
+        const sortReverse = (a, b) => sort(b, a);
 
         const getPlaylists = () =>
         {
