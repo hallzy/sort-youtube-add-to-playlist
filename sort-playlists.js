@@ -1,3 +1,14 @@
+// ==UserScript==
+// @name         "Add to Playlist" Search / Sort
+// @namespace    https://github.com/hallzy
+// @version      0.1
+// @description  Adds search and sorting to the "Add to Playlist" dialog on YouTube.
+// @author       Steven Hall
+// @match        https://www.youtube.com/*
+// @icon         https://www.google.com/s2/favicons?sz=64&domain=youtube.com
+// @grant        none
+// ==/UserScript==
+
 (
     () =>
     {
