@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         "Add to Playlist" Search / Sort
 // @namespace    https://github.com/hallzy
-// @version      0.1
+// @version      0.2
 // @description  Adds search and sorting to the "Add to Playlist" dialog on YouTube.
 // @author       Steven Hall
 // @match        https://www.youtube.com/*
@@ -13,6 +13,9 @@
     () =>
     {
         let saveToPlaylistEl;
+
+        const qs = Element.prototype.querySelector;
+        const qsa = Element.prototype.querySelectorAll;
 
         const resetMargin = el =>
         {
@@ -27,8 +30,8 @@
 
         const sort = (a, b) =>
         {
-            const aText = a.textContent.trim().toLowerCase();
-            const bText = b.textContent.trim().toLowerCase();
+            const aText = a.innerText.trim().toLowerCase();
+            const bText = b.innerText.trim().toLowerCase();
             return aText.localeCompare(bText);
         }
 
@@ -36,7 +39,7 @@
 
         const getPlaylists = () =>
         {
-            return saveToPlaylistEl.querySelectorAll('#playlists ytd-playlist-add-to-option-renderer');
+            return qsa.call(saveToPlaylistEl ,'#playlists ytd-playlist-add-to-option-renderer');
         }
 
         const createSortButton = () =>
@@ -144,7 +147,7 @@
                         (
                             playlist =>
                             {
-                                const playlistName = playlist.textContent.trim().toLowerCase();
+                                const playlistName = playlist.innerText.trim().toLowerCase();
                                 resetMargin(playlist);
 
                                 const shouldHide = !searchTokens.every(token => playlistName.includes(token));
@@ -206,7 +209,7 @@
                 }
                 observer.disconnect();
 
-                const modalTitle = saveToPlaylistEl.querySelector('#header #title');
+                const modalTitle = qs.call(saveToPlaylistEl, '#header #title');
                 modalTitle.textContent = '';
 
                 modalTitle.appendChild(createSortButton());
