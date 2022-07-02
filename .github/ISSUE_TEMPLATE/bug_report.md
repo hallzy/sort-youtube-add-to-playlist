@@ -17,6 +17,10 @@ Steps to reproduce the behavior:
 3. Scroll down to '....'
 4. See error
 
+**Error Messages**
+Are there any error messages that appear? Are there any error messages in
+the browser console?
+
 **Expected behavior**
 A clear and concise description of what you expected to happen.
 
@@ -30,3 +34,5 @@ If applicable, add screenshots to help explain your problem.
 
 **Additional context**
 Add any other context about the problem here.
+
+**Any bug report not using this template will be closed**
